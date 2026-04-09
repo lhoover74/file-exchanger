@@ -1,10 +1,86 @@
-<label>Create Invoice From Package</label>
-<select id="packageSelect">
-  <option value="">Loading packages...</option>
-</select>
+Build the next step of the deposit system for Books and Brews.
 
-<div style="margin-top:16px;">
-  <button type="submit" class="btn primary">Create Invoice From Package</button>
-</div>
+Goal:
+Implement the remaining balance invoice workflow.
 
-<p id="packageMsg" class="form-response" aria-live="polite"></p>
+Requirements:
+
+1. Admin invoice list in `admin/manage.html`
+- For invoices with:
+  - invoice_type = 'deposit'
+  - status = 'Paid'
+  - balance_due_amount > 0
+- show a button:
+  "Create Remaining Balance Invoice"
+
+2. Create backend route:
+- `/functions/api/invoices/create-balance.js`
+
+Behavior:
+- Accept `invoiceId`
+- Find the source deposit invoice
+- Reject if:
+  - invoice not found
+  - invoice_type is not deposit
+  - status is not Paid
+  - balance_due_amount <= 0
+- Check if a balance invoice already exists using either:
+  - parent_invoice_id = deposit invoice id
+  - or same lead_id + invoice_type = 'balance'
+- If duplicate exists, reject
+- Create new invoice with:
+  - lead_id = same lead
+  - invoice_number = new unique invoice number
+  - amount = balance_due_amount
+  - status = 'Draft'
+  - invoice_type = 'balance'
+  - total_project_amount = same as deposit invoice
+  - deposit_percent = same as deposit invoice
+  - parent_invoice_id = deposit invoice id
+  - balance_due_amount = 0
+  - notes = "Remaining balance for project"
+  - created_at and updated_at populated
+
+3. Admin UI action
+- Add JS function to call `/api/invoices/create-balance`
+- Refresh invoice list after success
+- Show success/error message
+
+4. Invoice card display
+In `admin/manage.html` invoice cards:
+- show invoice type label clearly:
+  Deposit / Balance / Full
+- show:
+  - total project amount
+  - deposit percent
+  - remaining balance
+- if deposit is paid and eligible, show Create Remaining Balance Invoice button
+- if balance already exists, do not show button
+
+5. Client portal
+In `client/portal.html`:
+- show invoice type labels
+- show deposit/balance/full clearly
+- show billing breakdown where available:
+  - total project amount
+  - deposit percent
+  - remaining balance
+
+6. Middleware
+- If needed, update middleware for the new route
+- regenerate full file if changed
+
+7. Full file rule
+- If a file needs edits, regenerate the full file, not snippets
+
+Files likely involved:
+- `functions/api/invoices/create-balance.js` new
+- `functions/api/invoices/by-lead.js`
+- `admin/manage.html`
+- `client/portal.html`
+- `functions/_middleware.js` if needed
+
+Return:
+1. full new route
+2. full regenerated files
+3. short test checklist
