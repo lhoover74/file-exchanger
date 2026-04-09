@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Project | Books and Brews</title>
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <section class="page-hero" style="padding-bottom:20px;">
+      <div class="container">
+        <div class="section-card">
+          <div style="display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+            <div>
+              <span class="eyebrow">Client Portal</span>
+              <h1 class="page-title" style="margin-bottom:10px;">Your Project</h1>
+              <p class="page-copy">
+                View your project details, current status, updates, invoices, files, and progress in one place.
+              </p>
+            </div>
+            <button id="logoutBtn" class="btn secondary">Log Out</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="container">
+        <div id="portalError" class="section-card" style="display:none; margin-bottom:22px;">
+          <p id="portalErrorText" style="margin:0;"></p>
+        </div>
+
+        <div class="grid-2">
+          <div class="section-card">
+            <span class="eyebrow">Overview</span>
+            <h2 id="portalName" class="section-title">Loading...</h2>
+            <div id="portalMeta" style="display:grid; gap:14px; margin-top:18px;"></div>
+          </div>
+
+          <div class="section-card">
+            <span class="eyebrow">Project info</span>
+            <h2 class="section-title">Details</h2>
+            <div id="portalDetails" style="display:grid; gap:14px; margin-top:18px;"></div>
+          </div>
+        </div>
+
+        <div class="section-card" style="margin-top:22px;">
+          <span class="eyebrow">Project tracker</span>
+          <h2 class="section-title">Progress</h2>
+          <div id="projectTrackerWrap" style="margin-top:18px;"></div>
+        </div>
+
+        <div class="section-card" style="margin-top:22px;">
+          <span class="eyebrow">Invoices</span>
+          <h2 class="section-title">Billing</h2>
+          <div id="portalInvoices" style="display:grid; gap:12px; margin-top:16px;"></div>
+        </div>
+
+        <div class="section-card" style="margin-top:22px;">
+          <span class="eyebrow">Files</span>
+          <h2 class="section-title">Asset center</h2>
+
+          <form id="clientFileForm" style="margin-top:18px;">
+            <label for="clientFileInput">Upload File</label>
+            <input id="clientFileInput" name="file" type="file" required />
+
+            <div style="margin-top:16px;">
+              <button type="submit" class="btn primary">Upload File</button>
+            </div>
+
+            <p id="clientFileMsg" class="form-response" aria-live="polite"></p>
+          </form>
+
+          <div id="portalFiles" style="display:grid; gap:12px; margin-top:18px;"></div>
+        </div>
+
+        <div class="grid-2" style="margin-top:22px;">
+          <div class="section-card">
+            <span class="eyebrow">Updates</span>
+            <h2 class="section-title">Notes</h2>
+            <div id="portalNotes" style="display:grid; gap:12px; margin-top:16px;"></div>
+          </div>
+
+          <div class="section-card">
+            <span class="eyebrow">Upcoming</span>
+            <h2 class="section-title">Reminders</h2>
+            <div id="portalReminders" style="display:grid; gap:12px; margin-top:16px;"></div>
+          </div>
+        </div>
+
+        <div class="section-card" style="margin-top:22px;">
+          <span class="eyebrow">Messages</span>
+          <h2 class="section-title">Project updates</h2>
+          <div id="portalMessages" style="display:grid; gap:12px; margin-top:16px;"></div>
+        </div>
+
+        <div class="section-card" style="margin-top:22px;">
+          <span class="eyebrow">Reply</span>
+          <h2 class="section-title">Send a message</h2>
+
+          <form id="clientReplyForm" style="margin-top:18px;">
+            <label for="clientReplySubject">Subject</label>
+            <input
+              id="clientReplySubject"
+              name="subject"
+              type="text"
+              placeholder="Question about project progress"
+              required
+            />
+
+            <label for="clientReplyMessage" style="margin-top:14px;">Message</label>
+            <textarea
+              id="clientReplyMessage"
+              name="message"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
+
+            <div style="margin-top:16px;">
+              <button type="submit" class="btn primary">Send Message</button>
+            </div>
+
+            <p id="clientReplyMsg" class="form-response" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="section-card" style="margin-top:22px;">
+          <span class="eyebrow">Security</span>
+          <h2 class="section-title">Change Password</h2>
+
+          <form id="changePasswordForm" style="margin-top:18px;">
+            <label for="currentPassword">Current Password</label>
+            <input id="currentPassword" name="currentPassword" type="password" required />
+
+            <label for="portalNewPassword" style="margin-top:14px;">New Password</label>
+            <input id="portalNewPassword" name="newPassword" type="password" required />
+
+            <label for="portalConfirmPassword" style="margin-top:14px;">Confirm New Password</label>
+            <input id="portalConfirmPassword" name="confirmPassword" type="password" required />
+
+            <div style="margin-top:18px;">
+              <button type="submit" class="btn primary">Update Password</button>
+            </div>
+
+            <p id="changePasswordMsg" class="form-response" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatDate(value) {
+      if (!value) return "—";
+      try {
+        return new Date(value).toLocaleString();
+      } catch {
+        return value;
+      }
+    }
+
+    function block(label, value) {
+      return `
+        <div style="
+          padding:14px 16px;
+          border:1px solid var(--border);
+          border-radius:14px;
+          background:rgba(255,255,255,.02);
+        ">
+          <div class="meta" style="margin-bottom:6px;">${escapeHtml(label)}</div>
+          <div>${escapeHtml(value)}</div>
+        </div>
+      `;
+    }
+
+    function showError(message) {
+      const box = document.getElementById("portalError");
+      const text = document.getElementById("portalErrorText");
+      text.textContent = message;
+      box.style.display = "block";
+    }
+
+    async function loadPortal() {
+      try {
+        const response = await fetch("/api/client/me", {
+          headers: { Accept: "application/json" }
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.ok) {
+          showError(data.error || "Unable to load portal.");
+          return;
+        }
+
+        const lead = data.lead;
+        const project = data.project || null;
+        const invoices = data.invoices || [];
+        const files = data.files || [];
+        const notes = data.notes || [];
+        const reminders = data.reminders || [];
+        const messages = data.messages || [];
+
+        document.getElementById("portalName").textContent = lead.name || "Client";
+
+        document.getElementById("portalMeta").innerHTML = [
+          block("Email", lead.email || "—"),
+          block("Status", lead.status || "New"),
+          block("Priority", lead.priority || "Normal"),
+          block("Submitted", formatDate(lead.submitted_at))
+        ].join("");
+
+        document.getElementById("portalDetails").innerHTML = [
+          block("Business Name", lead.business_name || "Not provided"),
+          block("Project Type", lead.project_type || "Not provided"),
+          block("Budget Range", lead.budget_range || "Not provided"),
+          block("Source Page", lead.source_page || "—")
+        ].join("");
+
+        document.getElementById("projectTrackerWrap").innerHTML = project
+          ? `
+            <div style="display:grid; gap:14px;">
+              ${block("Project Title", project.title || "—")}
+              ${block("Current Stage", project.stage || "—")}
+              ${block("Target Date", formatDate(project.target_date))}
+              ${block("Next Milestone", project.next_milestone || "—")}
+
+              <div style="
+                padding:18px;
+                border:1px solid var(--border);
+                border-radius:14px;
+                background:rgba(255,255,255,.02);
+              ">
+                <div class="meta" style="margin-bottom:8px;">Progress</div>
+                <div style="
+                  width:100%;
+                  height:14px;
+                  background:rgba(255,255,255,.08);
+                  border-radius:999px;
+                  overflow:hidden;
+                ">
+                  <div style="
+                    width:${Number(project.progress) || 0}%;
+                    height:100%;
+                    background:linear-gradient(90deg, #c79058, #e0b07d);
+                    border-radius:999px;
+                  "></div>
+                </div>
+                <div style="margin-top:10px;">${Number(project.progress) || 0}% complete</div>
+              </div>
+            </div>
+          `
+          : `<div class="contact-detail" style="display:block;">No project tracker has been published yet.</div>`;
+
+        document.getElementById("portalInvoices").innerHTML =
+          invoices.length
+            ? invoices.map(item => `
+                <div class="contact-detail" style="display:block;">
+                  <div style="font-size:12px; color:var(--accent); margin-bottom:6px;">
+                    ${escapeHtml(item.invoice_number)} • ${escapeHtml(item.status || "Draft")}
+                  </div>
+                  <div style="font-size:13px; color:var(--muted); margin-bottom:8px;">
+                    $${Number(item.amount || 0).toFixed(2)} ${item.due_date ? "• Due " + escapeHtml(item.due_date) : ""}
+                  </div>
+                  <div style="line-height:1.8; margin-bottom:8px;">${escapeHtml(item.notes || "")}</div>
+                  ${item.payment_url ? `<a class="btn primary" href="${escapeHtml(item.payment_url)}" target="_blank" rel="noopener noreferrer">Pay Now</a>` : ""}
+                </div>
+              `).join("")
+            : `<div class="contact-detail" style="display:block;">No invoices available yet.</div>`;
+
+        document.getElementById("portalFiles").innerHTML =
+          files.length
+            ? files.map(item => `
+                <div class="contact-detail" style="display:block;">
+                  <div style="font-size:12px; color:var(--accent); margin-bottom:6px;">
+                    ${escapeHtml(item.file_name)} • ${escapeHtml(item.uploaded_by || "file")}
+                  </div>
+                  <div style="font-size:13px; color:var(--muted); margin-bottom:8px;">
+                    ${escapeHtml(item.file_type || "file")} • ${escapeHtml(formatDate(item.created_at))}
+                  </div>
+                  <a class="btn secondary" href="${escapeHtml(item.file_url)}" target="_blank" rel="noopener noreferrer">Open File</a>
+                </div>
+              `).join("")
+            : `<div class="contact-detail" style="display:block;">No files available yet.</div>`;
+
+        document.getElementById("portalNotes").innerHTML =
+          notes.length
+            ? notes.map(note => `
+                <div class="contact-detail" style="display:block;">
+                  <div style="font-size:12px; color:var(--accent); margin-bottom:6px;">
+                    ${escapeHtml(formatDate(note.created_at))}
+                  </div>
+                  <div>${escapeHtml(note.note || "")}</div>
+                </div>
+              `).join("")
+            : `<div class="contact-detail" style="display:block;">No project notes yet.</div>`;
+
+        document.getElementById("portalReminders").innerHTML =
+          reminders.length
+            ? reminders.map(reminder => `
+                <div class="contact-detail" style="display:block;">
+                  <div style="font-size:12px; color:var(--accent); margin-bottom:6px;">
+                    ${escapeHtml(formatDate(reminder.remind_at))}
+                  </div>
+                  <div>${escapeHtml(reminder.note || "No note")}</div>
+                </div>
+              `).join("")
+            : `<div class="contact-detail" style="display:block;">No reminders available.</div>`;
+
+        document.getElementById("portalMessages").innerHTML =
+          messages.length
+            ? messages.map(item => `
+                <div class="contact-detail" style="display:block;">
+                  <div style="font-size:12px; color:var(--accent); margin-bottom:6px;">
+                    ${escapeHtml(formatDate(item.created_at))} • ${escapeHtml(item.subject || "Update")}
+                  </div>
+                  <div style="font-size:13px; color:var(--muted); margin-bottom:8px;">
+                    ${escapeHtml(item.sender_name || "")}
+                  </div>
+                  <div style="line-height:1.8;">${escapeHtml(item.message || "")}</div>
+                </div>
+              `).join("")
+            : `<div class="contact-detail" style="display:block;">No project updates yet.</div>`;
+      } catch (error) {
+        showError("Unable to load portal.");
+      }
+    }
+
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      await fetch("/api/client/logout", { method: "POST" });
+      window.location.href = "/client/login.html";
+    });
+
+    document.getElementById("clientFileForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const msg = document.getElementById("clientFileMsg");
+      msg.textContent = "";
+
+      try {
+        const form = new FormData(event.target);
+
+        const response = await fetch("/api/files/upload?mode=client", {
+          method: "POST",
+          body: form
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.ok) {
+          msg.textContent = data.error || "Unable to upload file.";
+          return;
+        }
+
+        const notifyForm = new FormData();
+        notifyForm.append("leadId", data.file?.lead_id || "");
+        notifyForm.append("fileName", data.file?.file_name || "New file");
+        notifyForm.append("uploadedBy", "client");
+
+        await fetch("/api/files/notify-upload", {
+          method: "POST",
+          body: notifyForm
+        });
+
+        msg.textContent = "File uploaded successfully.";
+        event.target.reset();
+        await loadPortal();
+      } catch (error) {
+        msg.textContent = "Unable to upload file right now.";
+      }
+    });
+
+    document.getElementById("clientReplyForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const msg = document.getElementById("clientReplyMsg");
+      msg.textContent = "";
+
+      try {
+        const form = new FormData(event.target);
+
+        const response = await fetch("/api/client/reply", {
+          method: "POST",
+          body: form
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.ok) {
+          msg.textContent = data.error || "Unable to send message.";
+          return;
+        }
+
+        msg.textContent = "Message sent successfully.";
+        event.target.reset();
+        await loadPortal();
+      } catch (error) {
+        msg.textContent = "Unable to send message right now.";
+      }
+    });
+
+    document.getElementById("changePasswordForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const msg = document.getElementById("changePasswordMsg");
+      msg.textContent = "";
+
+      try {
+        const form = new FormData(event.target);
+
+        const response = await fetch("/api/client/change-password", {
+          method: "POST",
+          body: form
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.ok) {
+          msg.textContent = data.error || "Unable to update password.";
+          return;
+        }
+
+        msg.textContent = data.message || "Password updated successfully.";
+        event.target.reset();
+      } catch (error) {
+        msg.textContent = "Unable to update password right now.";
+      }
+    });
+
+    loadPortal();
+  </script>
+</body>
+</html>
