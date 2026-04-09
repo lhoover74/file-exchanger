@@ -1,11 +1,251 @@
-const iterations = 100000;
-const hash = await crypto.subtle.deriveBits(
-  {
-    name: "PBKDF2",
-    salt,
-    iterations,
-    hash: "SHA-256"
-  },
-  key,
-  256
-);
+Project: Books and Brews
+
+Goal:
+Update the public site copy and pricing everywhere so it matches the new economical pricing model below, including add-ons.
+
+Important:
+If a file needs multiple edits, regenerate the entire file instead of returning partial snippets.
+
+==================================================
+NEW PRICING MODEL TO USE SITE-WIDE
+==================================================
+
+1. Starter Website — $125
+Includes:
+- 1–2 pages
+- Mobile responsive design
+- Contact or booking form
+- Clean, modern layout
+
+Best for:
+- Hair stylists
+- Barbers
+- Small local businesses
+
+Payment:
+- $60 deposit
+- $65 after completion
+
+2. Business Website — $300
+Includes:
+- 3–5 pages
+- Custom layout (no templates)
+- Contact / lead form
+- Mobile optimization
+- Basic SEO setup
+
+Best for:
+- Businesses ready to look professional and attract more clients
+
+Payment:
+- $120 deposit
+- $180 after completion
+
+3. Premium Website — $600
+Includes:
+- 5–8 pages
+- Custom design + branding feel
+- Lead capture focused layout
+- Performance optimization
+
+Best for:
+- Growing businesses and serious brands
+
+Payment:
+- $180 deposit
+- $420 after completion
+
+Add-ons:
+- Extra Page → $25 per page
+- Rush Delivery → +$75
+- Booking System Setup → $50
+- E-commerce Setup → $150–$300
+- Monthly Maintenance → $25–$75/month
+
+Tone:
+- affordable, professional, not cheap
+- aimed at small businesses, hair stylists, barbers, beauty brands, startups
+- still premium and modern
+- clear and conversion-focused
+
+==================================================
+WHAT TO UPDATE
+==================================================
+
+Update ALL public-facing copy and pricing references across the site so they match the pricing above.
+
+Check at minimum:
+- Home page
+- Services page
+- Request a Quote page
+- Any pricing cards or service previews
+- Any FAQ or CTA sections mentioning pricing
+- Any structured data or meta descriptions that mention services/pricing if applicable
+
+Also check backend/admin seed pricing references if the public site or package system still shows old package names or old price descriptions.
+
+==================================================
+SERVICES PAGE REQUIREMENTS
+==================================================
+
+Rewrite the Services page so it includes:
+
+1. Hero
+Headline:
+"Websites Built to Grow Your Business"
+
+Subheadline:
+"Affordable, custom-built websites designed to help you stand out, get clients, and look professional online."
+
+Buttons:
+- Get a Quote
+- View Portfolio
+
+2. Intro section
+Title:
+"Smart Websites. Smooth Experience."
+
+Text should explain that Books and Brews builds modern, mobile-ready websites for small businesses, hair stylists, barbers, startups, and local brands.
+
+3. Pricing section
+Section title:
+"Simple, Transparent Pricing"
+
+Include the three packages exactly:
+- Starter Website — $125
+- Business Website — $300
+- Premium Website — $600
+
+Each package should include:
+- package description
+- included features
+- best for
+- payment breakdown
+- CTA like "Start This Project"
+
+Mark Business Website as most popular.
+
+4. Add-ons section
+Title:
+"Enhance Your Website"
+
+Show:
+- Extra Page → $25 per page
+- Rush Delivery → +$75
+- Booking System Setup → $50
+- E-commerce Setup → $150–$300
+- Monthly Maintenance → $25–$75/month
+
+5. Process section
+Title:
+"How It Works"
+
+Steps:
+1. Submit Your Request
+2. We Plan Your Site
+3. We Build Everything
+4. Review & Launch
+
+6. Final CTA
+Title:
+"Ready to Build Your Website?"
+Buttons:
+- Get a Quote
+- Start Your Project
+
+==================================================
+HOME PAGE REQUIREMENTS
+==================================================
+
+Update any service preview cards or pricing mentions to align with the new packages.
+
+If the home page has service cards, update them so they match the public pricing structure and tone.
+
+If the home page currently lists services rather than packages, keep that structure if it looks better, but update supporting copy so it aligns with:
+- affordable websites
+- small businesses
+- hairstylists / barbers / local brands
+- starting at $125 if that fits naturally
+
+Do not make the homepage look cluttered or cheap.
+
+==================================================
+QUOTE PAGE REQUIREMENTS
+==================================================
+
+Update any pricing ranges or guidance text so they reflect the new price bands.
+
+If helpful, add helper copy like:
+"Most projects range from $125 to $600+ depending on pages, features, and add-ons."
+
+Keep it clean and premium.
+
+==================================================
+BACKEND / PACKAGE SYSTEM REQUIREMENTS
+==================================================
+
+Check any package seed data or package display logic used in admin or invoice creation.
+
+If old package names or old prices still exist, update them to:
+- Starter Website — 125 — deposit 50%
+- Business Website — 300 — deposit 40%
+- Premium Website — 600 — deposit 30%
+
+If there is SQL seed content or backend package generation code that still uses old names/prices, regenerate the full relevant file and include the updated SQL.
+
+If the package table is already populated and the right change should be done with SQL UPDATE statements, provide that too.
+
+==================================================
+DESIGN / UX REQUIREMENTS
+==================================================
+
+- Keep the premium dark + warm accent style
+- Avoid making pricing look discount or low-end
+- Make the $300 package feel like the main choice
+- Keep copy short, strong, and easy to scan
+- Use consistent naming everywhere:
+  - Starter Website
+  - Business Website
+  - Premium Website
+
+==================================================
+FILES TO CHECK
+==================================================
+
+Inspect and update whichever files are needed, likely including some of:
+- `index.html`
+- `services.html`
+- `quote.html`
+- `about.html` if pricing is mentioned
+- shared nav/footer/sections if reused
+- admin package-related UI if package names are shown publicly there
+- package API or seed file if old pricing remains in code
+- any JS powering package cards or quote forms
+
+If a file needs edits, regenerate the full file.
+
+==================================================
+OUTPUT FORMAT REQUIRED
+==================================================
+
+Return in this order:
+
+1. Short implementation summary
+2. Any SQL needed
+3. Full contents of every changed file
+4. Notes / assumptions
+5. Quick testing checklist
+
+==================================================
+TESTING CHECKLIST MUST INCLUDE
+==================================================
+
+- Homepage shows updated pricing or updated service messaging
+- Services page shows all 3 new packages
+- Add-ons appear correctly
+- Quote page reflects new pricing guidance
+- Package creation in admin uses new package names/prices
+- No old prices remain anywhere public
+- Site tone still feels premium and professional
+
+Implement the full pricing/content update now.
