@@ -43,7 +43,9 @@ export async function onRequest(context) {
     pathname.startsWith("/api/stripe/create-checkout-session") ||
     pathname.startsWith("/api/client/create-account") ||
     pathname.startsWith("/api/client/send-invite") ||
-    pathname.startsWith("/api/client/send-update");
+    pathname.startsWith("/api/client/send-update") ||
+    pathname.startsWith("/api/files/delete") ||
+    pathname.startsWith("/api/files/notify-upload");
 
   const isClientPage =
     pathname === "/client/portal.html";
@@ -53,13 +55,12 @@ export async function onRequest(context) {
     pathname.startsWith("/api/client/change-password") ||
     pathname.startsWith("/api/client/reply");
 
-  const isFileUploadRoute =
+  const isOpenFileRoute =
     pathname.startsWith("/api/files/upload") ||
     pathname.startsWith("/api/files/by-lead") ||
     pathname.startsWith("/files/");
 
-  // Let file routes handle their own logic
-  if (isFileUploadRoute) {
+  if (isOpenFileRoute) {
     return next();
   }
 
