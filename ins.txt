@@ -1,291 +1,88 @@
-Project: Books and Brews
+Use this on your homepage or /portfolio.html.
+<section class="portfolio-section">
+  <h2>Featured Projects</h2>
+  <p>Clean, modern websites built for real businesses.</p>
 
-Goal:
-Implement the next major public-site update:
-a conversion-focused homepage + services/public-site polish refresh.
+  <div class="portfolio-grid">
 
-Important:
-If a file needs edits, regenerate the full file instead of returning partial fragments.
+    <!-- Project 1 -->
+    <div class="portfolio-card">
+      <img src="/images/hair-site.jpg" alt="Luxury Braids Studio">
+      <h3>Luxury Braids Studio</h3>
+      <p>Modern booking-ready website for a hairstylist brand.</p>
+      <ul>
+        <li>Mobile booking layout</li>
+        <li>Service pricing display</li>
+        <li>Instagram integration</li>
+      </ul>
+      <a href="#" class="btn">View Demo</a>
+    </div>
 
-Current status:
-- Backend platform is strong
-- CRM, portal, invoices, Stripe, packages, deposits, files, and auth are working
-- Public site now needs better conversion performance
+    <!-- Project 2 -->
+    <div class="portfolio-card">
+      <img src="/images/barber-site.jpg" alt="Elite Cuts Barber">
+      <h3>Elite Cuts Barber</h3>
+      <p>Clean, professional site for a local barbershop.</p>
+      <ul>
+        <li>Service menu</li>
+        <li>Contact + location section</li>
+        <li>Mobile-first design</li>
+      </ul>
+      <a href="#" class="btn">View Demo</a>
+    </div>
 
-We want the public-facing site to look more premium, build trust faster, and generate more quote requests.
+    <!-- Project 3 -->
+    <div class="portfolio-card">
+      <img src="/images/beauty-site.jpg" alt="Glow Beauty Bar">
+      <h3>Glow Beauty Bar</h3>
+      <p>Elegant site built for a beauty and skincare brand.</p>
+      <ul>
+        <li>Service showcase</li>
+        <li>Brand-focused layout</li>
+        <li>Lead capture form</li>
+      </ul>
+      <a href="#" class="btn">View Demo</a>
+    </div>
 
-==================================================
-CORE GOAL
-==================================================
+  </div>
+</section>
 
-Improve the public site so more visitors turn into leads.
+BASIC CSS (clean + premium)
+.portfolio-section {
+  padding: 60px 20px;
+  text-align: center;
+}
 
-This update should focus on:
-- stronger homepage messaging
-- better CTA placement
-- better service positioning
-- more trust and clarity
-- smoother lead conversion
-- consistent premium but approachable tone
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
 
-Target audience:
-- hairstylists
-- barbers
-- beauty brands
-- small businesses
-- local brands
-- startups
+.portfolio-card {
+  background: #111;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+}
 
-Tone:
-- clear
-- confident
-- affordable but not cheap
-- premium but approachable
-- business-focused, not overly technical
+.portfolio-card img {
+  width: 100%;
+  border-radius: 8px;
+}
 
-==================================================
-PRICING CONTEXT
-==================================================
+.portfolio-card h3 {
+  margin-top: 15px;
+}
 
-Use the current pricing model consistently:
+.portfolio-card ul {
+  margin: 10px 0;
+  padding-left: 18px;
+}
 
-1. Starter Website — $125
-- 1–2 pages
-- Mobile responsive design
-- Contact or booking form
-- Clean, modern layout
-- $60 deposit / $65 after completion
-
-2. Business Website — $300
-- 3–5 pages
-- Custom layout
-- Contact / lead form
-- Mobile optimization
-- Basic SEO setup
-- $120 deposit / $180 after completion
-
-3. Premium Website — $600
-- 5–8 pages
-- Custom design + branding feel
-- Lead capture focused layout
-- Performance optimization
-- $180 deposit / $420 after completion
-
-Add-ons:
-- Extra Page → $25 per page
-- Rush Delivery → +$75
-- Booking System Setup → $50
-- E-commerce Setup → $150–$300
-- Monthly Maintenance → $25–$75/month
-
-==================================================
-HOMEPAGE REQUIREMENTS
-==================================================
-
-Rewrite and redesign the homepage to be more conversion-focused.
-
-Homepage should include:
-
-1. Hero section
-Headline ideas to use or refine:
-- "Smart Websites. Smooth Experience."
-- "Affordable Websites Built to Grow Your Business"
-- "Websites That Help Small Businesses Get Clients"
-
-Use the best version for conversion.
-
-Subheadline should clearly communicate:
-- custom websites
-- affordable pricing
-- modern design
-- built for small businesses / stylists / local brands
-
-Primary CTA:
-- Get a Quote
-
-Secondary CTA:
-- View Portfolio
-
-2. Intro / positioning section
-Explain what Books and Brews does in a short, strong way.
-Communicate:
-- custom websites
-- mobile ready
-- easy process
-- built for real businesses
-
-3. Package preview section
-Show the 3 packages clearly:
-- Starter Website
-- Business Website (most popular)
-- Premium Website
-
-Do not make this feel cluttered or discount-like.
-Business Website should visually stand out as the main option.
-
-4. Why choose us section
-Include strong conversion points like:
-- custom design, not cookie-cutter
-- mobile-first
-- affordable and clear pricing
-- fast, simple process
-- business-focused results
-- reliable communication
-
-5. Simple process section
-Use a 3-step or 4-step process like:
-- Tell us what you need
-- We build your site
-- You review and launch
-
-6. Trust section
-Add at least one of:
-- testimonials section
-- “built for” niche examples
-- confidence-building statements
-- support / communication emphasis
-
-If no real testimonials exist, create tasteful placeholder-style trust copy without inventing fake named reviews.
-
-7. Final CTA section
-Strong close:
-- “Ready to Build Your Website?”
-- “Let’s Build Something That Works for Your Business”
-Buttons:
-- Get a Quote
-- Start Your Project
-
-==================================================
-SERVICES PAGE REQUIREMENTS
-==================================================
-
-Polish the Services page so it matches the new homepage style and pricing structure.
-
-Requirements:
-- keep the 3 package structure
-- keep add-ons
-- improve layout and scanning
-- make Business Website feel like the recommended option
-- add trust-oriented copy, not just a plain price list
-
-Also improve:
-- spacing
-- headings
-- CTA placement
-
-==================================================
-QUOTE PAGE REQUIREMENTS
-==================================================
-
-Optimize the quote page for conversion.
-
-Requirements:
-- cleaner intro copy
-- set expectations clearly
-- mention typical price range naturally
-- explain that every project is custom
-- reduce hesitation
-
-Possible copy direction:
-“Most projects range from $125 to $600+ depending on pages, features, and add-ons.”
-
-Make the form feel easy and low-pressure.
-
-==================================================
-PORTFOLIO SECTION REQUIREMENTS
-==================================================
-
-Improve the portfolio preview or portfolio page if needed so it feels more premium and useful.
-
-Requirements:
-- show project type clearly
-- show who it’s for
-- short result-oriented language if appropriate
-- make it expandable for future work
-
-==================================================
-FAQ REQUIREMENTS
-==================================================
-
-Add or improve FAQ section somewhere appropriate (homepage, services, or quote page).
-
-Include helpful questions such as:
-- How much does a website cost?
-- How long does it take?
-- Do I need to pay everything upfront?
-- Can you update my current site?
-- Do you build sites for hairstylists and small businesses?
-- Do you offer maintenance?
-
-Keep answers short and confidence-building.
-
-==================================================
-DESIGN / UX REQUIREMENTS
-==================================================
-
-- Keep current premium dark / warm accent style
-- Strong spacing
-- Clean sections
-- Mobile-first
-- No clutter
-- No discount-store vibe
-- Make the site feel like a real premium service business
-
-==================================================
-SEO / COPY REQUIREMENTS
-==================================================
-
-Improve on-page copy for conversion and SEO, but keep it natural.
-
-Possible keyword themes:
-- affordable web design
-- small business website design
-- hairstylist website design
-- barber website design
-- website design for local businesses
-
-Do not keyword-stuff.
-
-Update meta title/description if those files are present and need changes.
-
-==================================================
-FILES TO CHECK
-==================================================
-
-Inspect and update whatever public-facing files are needed, likely including:
-- `index.html`
-- `services.html`
-- `quote.html`
-- `portfolio.html`
-- shared CSS if needed for layout polish
-- shared JS if homepage interactions need cleanup
-- any reusable sections/partials if present
-
-If a file needs edits, regenerate the full file.
-
-==================================================
-OUTPUT FORMAT REQUIRED
-==================================================
-
-Return in this order:
-
-1. Short implementation summary
-2. Full contents of every changed file
-3. Notes / assumptions
-4. Quick testing checklist
-
-==================================================
-TESTING CHECKLIST MUST INCLUDE
-==================================================
-
-- homepage hero and CTA are stronger
-- package preview shows updated pricing cleanly
-- Business Website stands out as main package
-- Services page looks polished and consistent
-- Quote page feels easier to submit
-- FAQ is present and useful
-- no old pricing remains
-- mobile layout still works
-- overall tone feels premium, affordable, and client-focused
-
-Implement the full conversion-focused public-site refresh now.
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  color: #97AFB0;
+}
