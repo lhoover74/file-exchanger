@@ -1,88 +1,209 @@
-Use this on your homepage or /portfolio.html.
-<section class="portfolio-section">
-  <h2>Featured Projects</h2>
-  <p>Clean, modern websites built for real businesses.</p>
+Project: Books and Brews
 
-  <div class="portfolio-grid">
+Goal:
+Upgrade the portfolio section and portfolio pages to be more professional, conversion-focused, and aligned with the current target audience (hair stylists, barbers, beauty brands, small businesses).
 
-    <!-- Project 1 -->
-    <div class="portfolio-card">
-      <img src="/images/hair-site.jpg" alt="Luxury Braids Studio">
-      <h3>Luxury Braids Studio</h3>
-      <p>Modern booking-ready website for a hairstylist brand.</p>
-      <ul>
-        <li>Mobile booking layout</li>
-        <li>Service pricing display</li>
-        <li>Instagram integration</li>
-      </ul>
-      <a href="#" class="btn">View Demo</a>
-    </div>
+Important:
+If a file needs edits, regenerate the full file instead of returning partial snippets.
 
-    <!-- Project 2 -->
-    <div class="portfolio-card">
-      <img src="/images/barber-site.jpg" alt="Elite Cuts Barber">
-      <h3>Elite Cuts Barber</h3>
-      <p>Clean, professional site for a local barbershop.</p>
-      <ul>
-        <li>Service menu</li>
-        <li>Contact + location section</li>
-        <li>Mobile-first design</li>
-      </ul>
-      <a href="#" class="btn">View Demo</a>
-    </div>
+==================================================
+CORE OBJECTIVE
+==================================================
 
-    <!-- Project 3 -->
-    <div class="portfolio-card">
-      <img src="/images/beauty-site.jpg" alt="Glow Beauty Bar">
-      <h3>Glow Beauty Bar</h3>
-      <p>Elegant site built for a beauty and skincare brand.</p>
-      <ul>
-        <li>Service showcase</li>
-        <li>Brand-focused layout</li>
-        <li>Lead capture form</li>
-      </ul>
-      <a href="#" class="btn">View Demo</a>
-    </div>
+The portfolio should:
+- build trust instantly
+- show real value
+- help convert visitors into leads
+- visually match the premium but affordable brand
 
-  </div>
-</section>
+It should NOT:
+- feel like random examples
+- feel empty or unfinished
+- look like “just demos”
 
-BASIC CSS (clean + premium)
-.portfolio-section {
-  padding: 60px 20px;
-  text-align: center;
-}
+==================================================
+WHAT TO BUILD / UPDATE
+==================================================
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
+1. Homepage Portfolio Section (Featured Projects)
 
-.portfolio-card {
-  background: #111;
-  border-radius: 12px;
-  padding: 20px;
-  text-align: left;
-}
+Update or create a section like:
 
-.portfolio-card img {
-  width: 100%;
-  border-radius: 8px;
-}
+Title:
+"Featured Projects"
 
-.portfolio-card h3 {
-  margin-top: 15px;
-}
+Subtitle:
+"Clean, modern websites built for real businesses."
 
-.portfolio-card ul {
-  margin: 10px 0;
-  padding-left: 18px;
-}
+Display 3 portfolio cards:
 
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  color: #97AFB0;
-}
+Project 1:
+- Luxury Braids Studio
+- Modern booking-ready website for a hairstylist brand
+
+Project 2:
+- Elite Cuts Barber
+- Clean, professional site for a local barbershop
+
+Project 3:
+- Glow Beauty Bar
+- Elegant site for a beauty and skincare brand
+
+Each card must include:
+- image (placeholder if needed)
+- title
+- short description
+- 3 bullet features
+- “View Demo” button
+
+==================================================
+2. Portfolio Page (/portfolio.html)
+==================================================
+
+Create or upgrade a dedicated portfolio page.
+
+Structure:
+
+Hero:
+"Recent Work"
+"Websites designed to help businesses grow and stand out."
+
+Grid of projects (same 3 as above)
+
+Each project expanded with:
+- title
+- description
+- features list
+- optional “who it’s for” label (e.g. hairstylist, barber, beauty brand)
+- “View Demo” button
+
+==================================================
+3. Individual Demo Pages
+==================================================
+
+Create 3 simple demo pages:
+
+/demo/hair.html
+/demo/barber.html
+/demo/beauty.html
+
+Each should be clean, modern, and simple.
+
+--------------------------------------------------
+
+Hair Demo:
+Name: Luxury Braids Studio
+Tagline: "Luxury braiding services with a flawless finish."
+
+Sections:
+- hero
+- services list
+- booking CTA
+
+--------------------------------------------------
+
+Barber Demo:
+Name: Elite Cuts Barber
+Tagline: "Precision cuts. Clean finishes. Every time."
+
+Sections:
+- hero
+- services
+- contact/location
+
+--------------------------------------------------
+
+Beauty Demo:
+Name: Glow Beauty Bar
+Tagline: "Enhancing your natural beauty."
+
+Sections:
+- hero
+- services
+- booking CTA
+
+--------------------------------------------------
+
+These do not need backend functionality — just clean front-end pages.
+
+==================================================
+4. Link Everything
+==================================================
+
+- Homepage portfolio → links to demo pages
+- Portfolio page → links to demo pages
+- Ensure all "View Demo" buttons work
+
+==================================================
+5. Styling Requirements
+==================================================
+
+- Match existing dark premium theme
+- Clean spacing
+- Rounded cards
+- Mobile responsive
+- No clutter
+
+Cards should feel:
+- modern
+- simple
+- slightly premium
+
+==================================================
+6. Image Handling
+==================================================
+
+If real images are not available:
+- use placeholders
+- or neutral business-style images
+- ensure images don’t break layout
+
+==================================================
+7. Optional Enhancement (if clean to add)
+==================================================
+
+Add a small label on each card:
+
+- “Hair Stylist Website”
+- “Barber Website”
+- “Beauty Brand Website”
+
+This helps clients immediately relate.
+
+==================================================
+FILES TO CHECK / UPDATE
+==================================================
+
+- index.html (homepage portfolio section)
+- portfolio.html (create or upgrade)
+- /demo/hair.html
+- /demo/barber.html
+- /demo/beauty.html
+- shared CSS if needed
+
+If any file needs edits, regenerate the full file.
+
+==================================================
+OUTPUT FORMAT REQUIRED
+==================================================
+
+Return in this order:
+
+1. Short implementation summary
+2. Full contents of every created/updated file
+3. Notes / assumptions
+4. Testing checklist
+
+==================================================
+TESTING CHECKLIST MUST INCLUDE
+==================================================
+
+- Homepage shows 3 portfolio cards
+- Portfolio page loads correctly
+- Each “View Demo” button works
+- Demo pages render cleanly on mobile
+- No broken images or links
+- Layout matches site theme
+- Portfolio feels real and professional
+
+Implement the full portfolio upgrade now.
