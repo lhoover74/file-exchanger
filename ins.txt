@@ -1,7 +1,7 @@
 Project: Books and Brews
 
 Goal:
-Upgrade the portfolio section and portfolio pages to be more professional, conversion-focused, and aligned with the current target audience (hair stylists, barbers, beauty brands, small businesses).
+Upgrade the portfolio demo pages so each demo looks premium, distinct, and fully branded in its own style.
 
 Important:
 If a file needs edits, regenerate the full file instead of returning partial snippets.
@@ -10,178 +10,193 @@ If a file needs edits, regenerate the full file instead of returning partial sni
 CORE OBJECTIVE
 ==================================================
 
-The portfolio should:
-- build trust instantly
-- show real value
-- help convert visitors into leads
-- visually match the premium but affordable brand
+The 3 demo pages should NOT feel like the same layout repeated.
 
-It should NOT:
-- feel like random examples
-- feel empty or unfinished
-- look like “just demos”
+Each one must feel like:
+- a different client
+- a different industry personality
+- a different visual direction
+- a different premium brand
 
-==================================================
-WHAT TO BUILD / UPDATE
-==================================================
-
-1. Homepage Portfolio Section (Featured Projects)
-
-Update or create a section like:
-
-Title:
-"Featured Projects"
-
-Subtitle:
-"Clean, modern websites built for real businesses."
-
-Display 3 portfolio cards:
-
-Project 1:
-- Luxury Braids Studio
-- Modern booking-ready website for a hairstylist brand
-
-Project 2:
-- Elite Cuts Barber
-- Clean, professional site for a local barbershop
-
-Project 3:
-- Glow Beauty Bar
-- Elegant site for a beauty and skincare brand
-
-Each card must include:
-- image (placeholder if needed)
-- title
-- short description
-- 3 bullet features
-- “View Demo” button
+The pages should still fit within the overall quality level of Books and Brews, but each demo should have its own identity.
 
 ==================================================
-2. Portfolio Page (/portfolio.html)
+DEMOS TO UPGRADE
 ==================================================
 
-Create or upgrade a dedicated portfolio page.
+1. /demo/hair.html
+Brand:
+Luxury Braids Studio
 
-Structure:
+Audience:
+Hairstylist / braid brand
 
-Hero:
-"Recent Work"
-"Websites designed to help businesses grow and stand out."
+Style direction:
+- warm luxury
+- feminine but modern
+- elegant
+- editorial / boutique feel
 
-Grid of projects (same 3 as above)
+Suggested visual style:
+- rich neutrals
+- soft beige / cream / mocha / muted gold accents
+- layered sections
+- smooth upscale styling
+- premium typography feel
+- slightly lifestyle-inspired
 
-Each project expanded with:
-- title
-- description
-- features list
-- optional “who it’s for” label (e.g. hairstylist, barber, beauty brand)
-- “View Demo” button
-
-==================================================
-3. Individual Demo Pages
-==================================================
-
-Create 3 simple demo pages:
-
-/demo/hair.html
-/demo/barber.html
-/demo/beauty.html
-
-Each should be clean, modern, and simple.
-
---------------------------------------------------
-
-Hair Demo:
-Name: Luxury Braids Studio
-Tagline: "Luxury braiding services with a flawless finish."
-
-Sections:
-- hero
-- services list
+Suggested content direction:
+- strong hero
+- featured services
+- “why clients book here”
 - booking CTA
+- polished imagery layout
 
---------------------------------------------------
+This page should feel:
+“Luxury salon brand”
 
-Barber Demo:
-Name: Elite Cuts Barber
-Tagline: "Precision cuts. Clean finishes. Every time."
+==================================================
 
-Sections:
+2. /demo/barber.html
+Brand:
+Elite Cuts Barber
+
+Audience:
+Barbershop / men’s grooming
+
+Style direction:
+- sharp
+- masculine
+- bold
+- urban premium
+- structured
+
+Suggested visual style:
+- darker palette
+- charcoal / black / steel / muted bronze or warm accent
+- strong blocks
+- tighter structure
+- bold headlines
+- clean sections
+- more aggressive contrast than the hair site
+
+Suggested content direction:
+- hero with strong headline
+- services/pricing blocks
+- why choose us
+- location/contact
+- CTA to schedule
+
+This page should feel:
+“Modern premium barbershop”
+
+==================================================
+
+3. /demo/beauty.html
+Brand:
+Glow Beauty Bar
+
+Audience:
+Beauty / skincare / self-care brand
+
+Style direction:
+- airy
+- refined
+- feminine
+- wellness-inspired
+- polished and calm
+
+Suggested visual style:
+- lighter but still premium
+- soft blush / ivory / muted taupe / warm neutral accents
+- elegant cards
+- more breathing room
+- clean luxury beauty brand feel
+
+Suggested content direction:
 - hero
-- services
-- contact/location
+- signature services
+- benefits / experience section
+- CTA to book
+- clean trust-building layout
 
---------------------------------------------------
-
-Beauty Demo:
-Name: Glow Beauty Bar
-Tagline: "Enhancing your natural beauty."
-
-Sections:
-- hero
-- services
-- booking CTA
-
---------------------------------------------------
-
-These do not need backend functionality — just clean front-end pages.
+This page should feel:
+“High-end beauty brand”
 
 ==================================================
-4. Link Everything
+IMPORTANT DESIGN RULES
 ==================================================
 
-- Homepage portfolio → links to demo pages
-- Portfolio page → links to demo pages
-- Ensure all "View Demo" buttons work
+1. Each demo must use a DIFFERENT:
+- page layout
+- section order
+- visual rhythm
+- card style
+- accent treatment
+- color palette
+- heading treatment
+
+2. Do NOT just swap text/colors on the same template.
+
+3. The demos should look like:
+- 3 different premium client websites
+- not 3 variants of one starter template
+
+4. Keep all demos:
+- mobile responsive
+- fast-loading
+- clean HTML/CSS/JS
+- visually polished
 
 ==================================================
-5. Styling Requirements
+PORTFOLIO PAGE / HOMEPAGE UPDATES
 ==================================================
 
-- Match existing dark premium theme
-- Clean spacing
-- Rounded cards
-- Mobile responsive
+Update homepage portfolio cards and/or portfolio page so the preview text better matches the new premium individuality of each demo.
+
+For each card, use improved descriptions:
+
+Luxury Braids Studio:
+“Elegant booking-ready website for a premium braid and styling brand.”
+
+Elite Cuts Barber:
+“Bold, modern barbershop website built for a sharp local brand.”
+
+Glow Beauty Bar:
+“Refined beauty website designed for a clean, upscale self-care brand.”
+
+If useful, add niche labels like:
+- Hair Stylist Website
+- Barber Website
+- Beauty Brand Website
+
+==================================================
+STYLING REQUIREMENTS
+==================================================
+
+- Keep everything high-end and polished
+- Distinct visual personalities across demos
+- Strong spacing
+- Strong section hierarchy
+- Good mobile experience
 - No clutter
+- No generic stock-template feel
 
-Cards should feel:
-- modern
-- simple
-- slightly premium
-
-==================================================
-6. Image Handling
-==================================================
-
-If real images are not available:
-- use placeholders
-- or neutral business-style images
-- ensure images don’t break layout
-
-==================================================
-7. Optional Enhancement (if clean to add)
-==================================================
-
-Add a small label on each card:
-
-- “Hair Stylist Website”
-- “Barber Website”
-- “Beauty Brand Website”
-
-This helps clients immediately relate.
+If shared CSS would make the demos too similar, create page-specific styling or separate style files.
 
 ==================================================
 FILES TO CHECK / UPDATE
 ==================================================
 
-- index.html (homepage portfolio section)
-- portfolio.html (create or upgrade)
+Likely:
+- index.html
+- portfolio.html
 - /demo/hair.html
 - /demo/barber.html
 - /demo/beauty.html
-- shared CSS if needed
+- shared CSS or demo-specific CSS files
 
-If any file needs edits, regenerate the full file.
+If a file needs edits, regenerate the full file.
 
 ==================================================
 OUTPUT FORMAT REQUIRED
@@ -190,7 +205,7 @@ OUTPUT FORMAT REQUIRED
 Return in this order:
 
 1. Short implementation summary
-2. Full contents of every created/updated file
+2. Full contents of every changed or created file
 3. Notes / assumptions
 4. Testing checklist
 
@@ -198,12 +213,11 @@ Return in this order:
 TESTING CHECKLIST MUST INCLUDE
 ==================================================
 
-- Homepage shows 3 portfolio cards
-- Portfolio page loads correctly
-- Each “View Demo” button works
-- Demo pages render cleanly on mobile
-- No broken images or links
-- Layout matches site theme
-- Portfolio feels real and professional
+- Each demo page feels visually distinct
+- Each demo page matches its industry
+- Homepage and portfolio links still work
+- Demo pages look premium on mobile
+- No broken styles or links
+- No repeated template feel across demos
 
-Implement the full portfolio upgrade now.
+Implement the premium demo redesign now with each demo intentionally unique.
