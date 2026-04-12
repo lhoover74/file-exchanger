@@ -1,139 +1,325 @@
-Project: Books and Brews
+You are upgrading the ClearEdge Auto Glass website repository with a near-complete production redesign.
 
-Goal:
-Remove the homepage Client Portal section entirely and replace it with a clean Client Portal nav link, while also tightening the main navigation for better conversion.
+Your goal is to fully upgrade the site in one pass:
+- redesign the public website visually
+- rewrite the public-facing copy for clarity and trust
+- improve conversion on mobile
+- update the workflow so payment unlocks as soon as the customer submits the service request
+- support the customer choosing the appointment day online during request submission
+- keep deployment compatibility with the existing Cloudflare Pages / Workers setup
 
-Important:
-If a file needs edits, regenerate the full file instead of returning partial snippets.
-
-==================================================
-MAIN OBJECTIVE
-==================================================
-
-The homepage should stay focused on selling website services to new visitors.
-
-The Client Portal should still be accessible, but only as a navigation item, not as a homepage feature section.
-
-Also tighten the navigation so it is cleaner and more conversion-focused.
+This is not a light refresh.
+This is a full-site upgrade of the live frontend and supporting UX.
 
 ==================================================
-1. REMOVE HOMEPAGE CLIENT PORTAL SECTION
+UPDATED CORE BUSINESS FLOW TO IMPLEMENT
 ==================================================
 
-Delete the full homepage section related to:
-- "Track Your Website in Real Time"
-- private client portal promotion
-- project status preview
-- invoice/payment preview
-- any CTA tied to that section
+This is now the correct workflow and must be reflected everywhere in public copy, forms, page structure, and UX:
 
-This section should no longer appear on the homepage.
+1. Customer chooses the service date online during the request process
+2. Customer submits the service request
+3. Submitting the request unlocks payment
+4. Customer can immediately complete payment through the website
+5. After successful payment, the job is treated as scheduled for the date the customer selected online
+6. Admin can still review, manage, and adjust the job internally as needed, but the public-facing flow should treat the customer-selected date as the scheduled appointment date
 
-After removal:
-- clean up spacing
-- ensure surrounding sections flow naturally
-- no large empty gap should remain
+Public messaging must match this updated flow.
 
-==================================================
-2. UPDATE MAIN NAVIGATION ORDER
-==================================================
+Do not use the older flow that says:
+- admin must schedule first before payment
+- payment only unlocks after admin scheduling
+- quote review delays payment by default
 
-Use this exact navigation order:
-
-- Home
-- Services
-- Portfolio
-- Quote
-- Contact
-- Client Portal
-
-If About is currently in the main nav, remove it from the top navigation unless absolutely required by the site structure.
-
-The goal is a shorter, higher-converting nav.
+Instead, public pages should clearly communicate:
+- choose your date
+- submit your request
+- pay online
+- your appointment is scheduled for the selected date
 
 ==================================================
-3. CLIENT PORTAL NAV ITEM
+MISSION
 ==================================================
 
-Add:
-Client Portal
+Complete a full website upgrade across all active production-facing pages and key shared assets.
 
-Placement:
-- after Contact
-- same level as the other nav items
-
-Link target:
-/client/login.html
-
-==================================================
-4. NAV STYLING RULES
-==================================================
-
-- Keep "Get a Quote" or "Quote" as the main conversion-focused nav item
-- Do NOT make Client Portal the main highlighted gold CTA
-- Client Portal should be:
-  - a regular nav link
-  - or a subtle outline-style nav item if needed
-- It should feel available but not compete with the main sales CTA
-
-==================================================
-5. MOBILE MENU
-==================================================
-
-Update the mobile menu so it uses the same order:
-
-- Home
-- Services
-- Portfolio
-- Quote
-- Contact
-- Client Portal
-
-Make sure the Client Portal link works correctly on mobile.
+Upgrade all of the following in one coordinated pass:
+- visual design system
+- layout and spacing
+- typography and hierarchy
+- buttons, cards, forms, tables, notices
+- homepage structure
+- services page
+- pricing page
+- request quote page
+- payment page
+- payment success page
+- contact page
+- status page
+- admin control center UI polish
+- global CSS and shared JS where needed
+- consistency of copy and calls to action across the site
+- frontend workflow and payment messaging to reflect immediate payment unlock after request submission
 
 ==================================================
-6. CLEANUP / CONSISTENCY
+STRICT RULES
 ==================================================
 
-After navigation changes:
-- ensure no broken links remain
-- ensure no empty nav spacing remains
-- ensure Quote is still clearly the main action
-- keep the premium dark site styling intact
+Do not break:
+- live routes
+- Cloudflare Pages / Workers compatibility
+- quote submission
+- quote lookup
+- Stripe payment flow
+- Bitcoin / OpenNode flow if present
+- admin workflow
+- quote ID based workflows
+- status tracking flow
+
+Do not:
+- introduce a framework
+- replace the worker architecture
+- rename public routes unless absolutely necessary
+- remove production files casually
+- archive or delete duplicate files during this redesign unless directly required and clearly safe
+- expose admin tools in public navigation
+- remove route compatibility pages unless explicitly instructed
+
+Keep implementation simple:
+- HTML
+- CSS
+- vanilla JS
+- worker-compatible backend logic
 
 ==================================================
-FILES TO CHECK
+WORKFLOW CHANGES TO APPLY
 ==================================================
 
-Likely:
+The site must be updated so the public-facing process works like this:
+
+- customer picks appointment day online on the request form
+- customer submits the request
+- request submission unlocks payment
+- customer can pay immediately
+- once paid, the appointment is scheduled for the date the customer picked online
+
+Apply this across:
+- page copy
+- call to action wording
+- “how it works” sections
+- payment page messaging
+- request form instructions
+- payment success messaging
+- status page messaging
+
+Update backend/frontend behavior as needed so the customer-selected date is treated as the scheduled appointment date in the live workflow.
+
+Admin should still be able to:
+- view requests
+- manage jobs
+- adjust pricing internally if needed
+- update status
+- handle exceptions
+
+But public copy should not make the customer think they are waiting for manual scheduling before payment.
+
+==================================================
+DESIGN DIRECTION
+==================================================
+
+Upgrade the site to feel like a premium, modern, trustworthy service business website.
+
+Visual direction:
+- dark, polished, professional
+- premium but practical
+- high trust
+- mobile-first
+- cleaner spacing and hierarchy
+- better contrast and readability
+- modern cards, sections, forms, and CTAs
+- less patched-together feel
+- stronger visual consistency page to page
+
+Brand feel:
+- professional auto glass service company
+- premium service quality
+- direct and trustworthy
+- not hype-heavy
+- not cluttered
+- not generic template looking
+
+==================================================
+COPY DIRECTION
+==================================================
+
+Use clear, customer-friendly service-business language.
+
+Public copy should consistently explain:
+- choose your service date
+- submit your request
+- complete secure online payment
+- your appointment is scheduled for the date you selected
+- contact support if anything needs to be adjusted
+
+Use consistent CTA language.
+Prefer:
+- Request Service
+- Choose Your Date
+- Complete Payment
+- Check Quote Status
+- Contact Support
+
+Avoid old or conflicting phrases such as:
+- payment unlocks after admin scheduling
+- wait for approval before payment
+- scheduling happens only after admin review
+
+Reduce filler text.
+Remove clunky or outdated wording.
+Keep everything believable and easy to scan on mobile.
+
+==================================================
+PAGE-BY-PAGE REQUIREMENTS
+==================================================
+
+1. Homepage
+- redesign hero section
+- make the workflow clear immediately
+- strong trust messaging
+- explain online date selection and immediate payment
+- add a clear how-it-works section
+- improve service highlights
+- improve pricing preview
+- improve CTA sections
+- mobile-first structure
+
+2. Services page
+- redesign service cards/sections
+- improve explanations
+- make services easier to scan
+- align all service messaging with the new schedule-and-pay flow
+
+3. Pricing page
+- redesign pricing layout
+- make it cleaner and more trustworthy
+- clarify that pricing is straightforward and paid online after request submission
+- keep pricing easy to scan
+
+4. Request Quote / Request Service page
+- make this a major upgrade
+- this page should feel like the core booking page
+- clearly let the customer choose appointment date online
+- group the form into logical sections
+- improve trust, clarity, and mobile UX
+- after submission, clearly show the next step is payment
+- ensure the copy says the selected date becomes the scheduled appointment date once payment is completed
+
+5. Payment page
+- redesign as a real payment center
+- reflect that payment unlocks immediately after request submission
+- support card payment and Bitcoin if configured
+- explain secure checkout clearly
+- remove outdated schedule-first gating language
+- make the payment flow feel simple, direct, and trustworthy
+
+6. Payment success page
+- make it feel polished and reassuring
+- confirm payment was received
+- confirm the appointment is scheduled for the selected date
+- provide next-step messaging
+- provide quote status/support links
+
+7. Contact page
+- redesign for trust and clarity
+- make it easy to contact the business
+- support questions about appointments, payment, and service
+
+8. Status page
+- redesign for clarity
+- show the current appointment and payment state clearly
+- align status terminology with the new workflow
+
+9. Admin control center
+- visually improve the interface
+- keep it internal only
+- preserve admin management capabilities
+- allow internal overrides and adjustments without breaking the public-facing flow
+
+==================================================
+IMPLEMENTATION REQUIREMENTS
+==================================================
+
+Trace the actual live files before editing and apply the redesign to the files that actively serve production.
+
+At minimum, inspect and update as needed:
 - index.html
-- any shared header/nav partial
-- any mobile menu markup
-- shared CSS if nav styling needs minor adjustment
+- services.html
+- pricing.html
+- request-quote.html
+- payment.html
+- payment-success.html
+- contact.html
+- status.html
+- control-center-7h9.html
+- assets/styles.css
+- assets/site.js
+- _worker.js
+- any live shared assets actually referenced by the public pages
 
-If a file needs edits, regenerate the full file.
+Handle duplicate-looking files carefully:
+- inspect `_worker.js` and `[[path]].js`
+- inspect `payment.html` and `payment-fixed.html`
+- inspect root vs `/assets/` shared files
+- do not delete or archive during redesign unless clearly safe and necessary
 
 ==================================================
-OUTPUT FORMAT REQUIRED
+TECHNICAL REQUIREMENTS
 ==================================================
 
-Return in this order:
+Keep everything compatible with:
+- Cloudflare Pages
+- Cloudflare Workers
+- current route structure
+- current quote ID flow
+- Stripe checkout
+- OpenNode Bitcoin checkout if enabled
 
-1. Short implementation summary
-2. Full contents of every changed file
-3. Notes / assumptions
-4. Quick testing checklist
+Preserve:
+- endpoint paths unless necessary
+- route names unless necessary
+- form IDs and major JS hooks unless intentionally and safely updated across the whole flow
+- admin token logic
+- quote status tracking
+
+Update logic where needed so the request submission and payment flow truly support:
+- customer-selected online appointment day
+- immediate payment unlock after submission
+- scheduled appointment messaging after payment
 
 ==================================================
-TESTING CHECKLIST MUST INCLUDE
+QUALITY STANDARD
 ==================================================
 
-- homepage Client Portal section is fully removed
-- nav order is exactly:
-  Home / Services / Portfolio / Quote / Contact / Client Portal
-- About is removed from main nav if present
-- Client Portal links to /client/login.html
-- mobile menu uses same order
-- Quote remains the strongest conversion-focused nav item
-- homepage spacing still looks clean
-- site still feels premium and uncluttered
+The finished site should feel:
+- modern
+- premium
+- cohesive
+- mobile-first
+- trustworthy
+- easy to understand
+- ready for real customers
+
+It should no longer feel patched together or inconsistent.
+
+==================================================
+DELIVERABLES
+==================================================
+
+Complete the upgrade in one pass and return:
+1. list of files changed
+2. summary of design upgrades made
+3. summary of workflow changes made
+4. any backend changes made to support immediate payment unlock and customer-selected scheduling
+5. any remaining risks or follow-up recommendations
+
+Do the full upgrade now.
