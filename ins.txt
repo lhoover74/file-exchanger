@@ -1,38 +1,24 @@
+curl -X POST "http://127.0.0.1:8000/vehicles/" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "plate": "ABC123",
+    "property_name": "Test Property",
+    "location": "Lot A",
+    "tow_reason": "no permit",
+    "notes": "test"
+  }'
 
-pwd
-ls
-ls api
-PYTHONPATH=. uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 
-cd /workspaces/towtrack-app
-pwd
-ls
 
-touch api/__init__.py
-PYTHONPATH=. uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+curl http://127.0.0.1:8000/vehicles/search/ABC123
 
-cd api
-pip install -r ../requirements.txt  # if created
-uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+nano bot/services/api.py
 
-2
-cd ../webapp
-npm install
-npm run dev
+def search_vehicle(plate: str):
+    response = requests.get(f"{API_URL}/vehicles/search/{plate}", timeout=15)
+    response.raise_for_status()
+    return response.json()
 
-3
-nano bot/config.py
 
-4
-cd ..
 python -m bot.main
 
-5
-uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
-touch api/__init__.py
-ls api
-curl http://127.0.0.1:8000/health
-
-pwd
-ls
-ls api
