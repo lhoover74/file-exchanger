@@ -1,19 +1,190 @@
-Run a final verification pass against the upgraded live workflow. Do not redesign anything else. Only inspect and verify.
+Project: Books and Brews
 
-Tasks:
-1. Confirm the new workflow is consistent across:
-   - request-quote.html
-   - payment.html
-   - payment-success.html
-   - status.html
-   - control-center-7h9.html
-   - _worker.js
-   - [[path]].js
-2. Confirm there is no remaining copy anywhere that still says payment must wait for admin scheduling first.
-3. Identify any legacy quote states that could break the new immediate-payment-after-request flow.
-4. List any exact admin actions needed for old quotes created before this redesign.
-5. Return:
-   - files inspected
-   - any conflicting copy still found
-   - any legacy-data risks
-   - exact manual cleanup steps for old quotes
+Goal:
+Implement the next best conversion upgrades on the public site, with demo pages positioned around the $125 starter offer.
+
+Important:
+If a file needs edits, regenerate the full file instead of returning partial snippets.
+
+==================================================
+CORE OBJECTIVE
+==================================================
+
+Improve conversion by making the site:
+- more action-oriented
+- more urgent
+- more persuasive
+- easier to move from demo page to quote request
+
+Important pricing note:
+The demo pages should now point to the $125 pricing level as the entry point.
+
+That means demo CTAs should frame the example sites as:
+- starting at $125
+- with upgrades available depending on features
+
+==================================================
+1. DEMO PAGE CTA UPGRADE
+==================================================
+
+Update all demo pages:
+- /demo/hair.html
+- /demo/barber.html
+- /demo/beauty.html
+
+Requirements:
+
+Add a strong CTA near the hero area:
+- "Get This Style for My Business"
+
+Add supporting line directly below or near the CTA:
+- "Starting at $125 depending on pages and features"
+
+Also add a second CTA near the bottom of each demo page.
+
+Both CTA buttons should link to:
+- /quote.html
+
+If possible, include URL parameters so quote page can prefill context, for example:
+- /quote.html?style=hair&package=starter
+- /quote.html?style=barber&package=starter
+- /quote.html?style=beauty&package=starter
+
+Keep each demo visually unique, but make sure the CTA treatment feels premium and intentional.
+
+==================================================
+2. ADD URGENCY / SCARCITY
+==================================================
+
+Add a subtle urgency section or line on the homepage.
+
+Good placement:
+- near pricing
+- or near final CTA
+
+Use premium wording like:
+- "Limited client spots available this month"
+or
+- "Currently booking a small number of new projects"
+
+Do not make it spammy.
+It should feel believable and tasteful.
+
+==================================================
+3. ADD STRONG MONEY / PAIN-POINT SECTION
+==================================================
+
+Add a section before pricing on the homepage.
+
+Title:
+"Stop Losing Clients to Businesses With Better Websites"
+
+Body:
+"If your business doesn’t have a clean, professional website, potential clients can hesitate, miss key information, or choose someone else. A strong website helps you build trust, look established, and turn more visitors into paying clients."
+
+Requirements:
+- premium styling
+- readable on mobile
+- should feel like a strong business case, not fear-based spam
+
+==================================================
+4. QUOTE PAGE PRICING CLARITY
+==================================================
+
+Update /quote.html to make pricing expectations clearer.
+
+Add helper copy such as:
+"Most projects start at $125 and can increase based on pages, features, and add-ons."
+
+Also make the page feel:
+- simple
+- low-pressure
+- easy to complete
+
+If the quote page already has package or style logic, preserve it.
+
+==================================================
+5. DEMO-TO-QUOTE AUTOFILL
+==================================================
+
+Upgrade the quote page so if URL parameters are present, it prefills context.
+
+Examples:
+- style=hair
+- style=barber
+- style=beauty
+- package=starter
+
+Requirements:
+- if style is present, prefill a relevant project type or details field
+- if package=starter is present, prefill or suggest Starter Website / $125 starting point
+- do not break normal form behavior if no parameters are present
+
+This can be done with lightweight JS if the page already uses form inputs.
+
+==================================================
+6. KEEP PRICING CONSISTENT
+==================================================
+
+Make sure demo CTA language matches this pricing logic:
+
+Demo pages:
+- "Starting at $125 depending on pages and features"
+
+Public package structure remains:
+- Starter Website — $125
+- Business Website — $300
+- Premium Website — $600
+
+Do not accidentally change the broader package pricing.
+
+==================================================
+7. DESIGN REQUIREMENTS
+==================================================
+
+- keep premium dark + warm visual style
+- no clutter
+- mobile-first
+- CTA buttons should feel stronger
+- urgency should feel subtle
+- pain-point section should feel polished, not aggressive
+
+==================================================
+FILES TO CHECK
+==================================================
+
+Likely:
+- index.html
+- quote.html
+- /demo/hair.html
+- /demo/barber.html
+- /demo/beauty.html
+- any shared CSS
+- any JS used on quote page
+
+If a file needs edits, regenerate the full file.
+
+==================================================
+OUTPUT FORMAT REQUIRED
+==================================================
+
+Return in this order:
+
+1. Short implementation summary
+2. Full contents of every changed file
+3. Notes / assumptions
+4. Quick testing checklist
+
+==================================================
+TESTING CHECKLIST MUST INCLUDE
+==================================================
+
+- each demo page has a strong CTA near the top
+- each demo page mentions starting at $125
+- demo CTA links to quote page
+- quote page shows starting price guidance
+- quote page prefills correctly when URL params exist
+- homepage includes urgency section
+- homepage includes pain-point section before pricing
+- mobile layout stays clean
+- package pricing elsewhere remains correct
