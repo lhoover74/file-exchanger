@@ -1,3 +1,6 @@
+cd /workspaces/towtrack-telegram
+pwd
+
 cd api
 pip install -r ../requirements.txt  # if created
 uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
