@@ -1,7 +1,7 @@
 Project: Books and Brews
 
 Goal:
-Upgrade the entire public-facing site to maximize conversions, improve positioning, and make the brand feel premium, targeted, and business-focused.
+Apply one final conversion and polish pass to the public site based on the latest mobile review.
 
 Important:
 If a file needs edits, regenerate the full file instead of returning partial snippets.
@@ -10,297 +10,200 @@ If a file needs edits, regenerate the full file instead of returning partial sni
 CORE OBJECTIVE
 ==================================================
 
-Turn the site from a “good website” into a:
-- client-generating system
-- premium but approachable brand
-- highly targeted experience for:
-  • hairstylists
-  • barbers
-  • beauty brands
-  • small businesses
+The site is now strong overall, but there are a few specific issues still reducing conversion quality.
 
-The site should:
-- clearly communicate value in 5 seconds
-- guide users toward the $300 package
-- make portfolio feel desirable
-- reduce hesitation
-- push toward quote submission
+This final pass should:
+- remove visual confusion
+- improve CTA strength
+- increase urgency and value perception
+- make demo pages convert better
+- keep the premium look intact
+
+Do not redesign the site from scratch.
+Do not remove the strong dark premium direction.
+This is a focused high-conversion polish pass.
 
 ==================================================
-1. HOMEPAGE — FULL CONVERSION REWRITE
+FIXES TO APPLY
 ==================================================
 
-Update homepage structure and messaging.
+1. REMOVE DUPLICATE HERO CONTENT
+There appears to be a repeated hero / repeated intro block on the homepage.
 
-------------------------------------------
-HERO SECTION
-------------------------------------------
+Requirements:
+- keep only one main hero
+- remove any duplicated or repeated hero-style section immediately below it
+- homepage should open with one strong, clean hero and then flow into the next section naturally
 
-Replace current hero with:
+Keep the strongest version of the hero.
 
+Preferred hero messaging:
 Headline:
 "Websites Built to Bring You Clients, Not Just Look Good"
 
-Subheadline:
-"Affordable, modern websites for hairstylists, barbers, beauty brands, and small businesses starting at $125."
+Subheadline should still communicate:
+- affordable
+- modern
+- built for hairstylists, barbers, beauty brands, and small businesses
+- starting at $125
 
 Primary CTA:
-- Get My Website Started
+- Start My Website Now
 
 Secondary CTA:
 - View Examples
 
-------------------------------------------
-AUDIENCE SECTION
-------------------------------------------
+==================================================
+2. STRENGTHEN PRIMARY CTA WORDING
+Across the public site, upgrade weak CTA wording.
 
-Add section:
-
-Title:
-"Built For Growing Brands"
-
-List:
-- Hairstylists
-- Barbers
-- Beauty Brands
-- Small Local Businesses
-
-------------------------------------------
-PAIN-POINT SECTION (NEW)
-------------------------------------------
-
-Add BEFORE pricing:
-
-Title:
-"Still Relying on Instagram or Word of Mouth?"
-
-Text:
-"Without a real website, potential clients can lose trust, miss important details, or move on to someone else. A clean professional website helps you look established, make booking easier, and convert more visitors into paying clients."
-
-------------------------------------------
-PRICING PREVIEW SECTION
-------------------------------------------
-
-Keep:
-- Starter — $125
-- Business — $300
-- Premium — $600
-
-Improve:
-- highlight Business Website with:
-  • "Most Popular"
-  • "Best for serious businesses ready to grow"
-- add benefit-driven copy
-- improve card layout hierarchy
-
-------------------------------------------
-PORTFOLIO SECTION
-------------------------------------------
-
-Replace heading with:
-
-"See Exactly What Your Business Could Look Like"
-
-Update descriptions:
-
-Luxury Braids Studio:
-"Elegant booking-ready website for a premium braid and styling brand."
-
-Elite Cuts Barber:
-"Bold, modern barbershop website built for local growth."
-
-Glow Beauty Bar:
-"Refined beauty website designed for a clean, upscale self-care brand."
-
-Add labels:
-- Hair Stylist Website
-- Barber Website
-- Beauty Brand Website
-
-------------------------------------------
-TRUST SECTION
-------------------------------------------
-
-Add section:
-
-Title:
-"Why Business Owners Choose Books and Brews"
-
-Bullet points:
-- Custom design, not cookie-cutter templates
-- Mobile-first and built for modern clients
-- Affordable pricing with clear packages
-- Easy, low-stress process
-- Built for real businesses that want to grow
-- Reliable communication from start to finish
-
-------------------------------------------
-PROCESS SECTION
-------------------------------------------
-
-Title:
-"A Clear Process, Start to Finish"
-
-Steps:
-1. Submit Your Request
-2. We Plan Your Site
-3. We Build Everything
-4. Review & Launch
-
-------------------------------------------
-FINAL CTA
-------------------------------------------
-
-Title:
-"Ready to Get Your Website Up and Running?"
-
-Text:
-"Let’s build something that helps your business look professional, stand out online, and bring in more clients."
-
-Buttons:
-- Get My Website Started
+Use stronger action-driven language such as:
+- Start My Website Now
+- Build My Website
+- Get My Site Built
 - Get a Quote
 
+Prefer "Start My Website Now" for primary homepage CTA.
+
+Reduce generic wording like:
+- Get Started
+- Start Your Project
+where a stronger option fits better.
+
 ==================================================
-2. SERVICES PAGE — POLISH & SELL
-==================================================
+3. ADD A STRONGER PAIN-POINT / MONEY SECTION
+Add a short, high-impact section before pricing.
+
+Use this concept:
+
+Title:
+"Stop Losing Clients to Businesses With Better Websites"
+
+Body:
+"If your business doesn’t have a clean, professional website, potential clients will hesitate or choose someone else. A strong website builds trust, answers questions, and turns visitors into real paying customers."
 
 Requirements:
-- maintain pricing structure
-- improve layout clarity
-- strengthen package descriptions
-- highlight Business Website as main option
-- add stronger benefit-driven copy
-- include add-ons clearly
-- improve CTA placement
-
-==================================================
-3. PORTFOLIO PAGE — MAKE IT CLOSE
-==================================================
-
-Upgrade portfolio page:
-
-- stronger headline
-- better project descriptions
-- niche labels
-- cleaner card layout
-- working demo links
 - premium presentation
-
-Add:
-Each project should feel like a real business.
-
-==================================================
-4. DEMO PAGES — CONSISTENCY PASS
-==================================================
-
-Keep:
-- each demo visually unique
-
-Improve:
-- button styling consistency
-- typography polish
-- spacing consistency
-- premium finish
-
-Do NOT make them identical.
+- short and readable on mobile
+- should feel like a strong emotional + business case for buying
 
 ==================================================
-5. PRICING STRATEGY — GUIDED DECISION
-==================================================
+4. MAKE THE $300 PACKAGE SELL HARDER
+The Business Website package should stand out clearly as the best choice.
 
-Ensure:
-- Business Website ($300) stands out
-- Starter feels entry-level
-- Premium feels aspirational
-
-Add benefit lines:
-- "Built to convert visitors into clients"
-- "Best value for most businesses"
-
-==================================================
-6. QUOTE PAGE — LOWER FRICTION
-==================================================
-
-Improve quote page:
-
-Add:
-"Most projects range from $125 to $600+ depending on your needs."
-
-Add:
-short explanation of process
-
-Keep:
-form simple and clean
-
-Make it feel:
-- easy
-- low-pressure
-- professional
+Requirements:
+- visible "Most Popular" badge
+- add supporting line:
+  "Best for serious businesses ready to grow"
+- add benefit line:
+  "Built to turn visitors into paying clients"
+- make sure visual hierarchy clearly favors this card
+- keep it premium, not flashy or cheap
 
 ==================================================
-7. CTA IMPROVEMENTS (SITE-WIDE)
+5. DEMO PAGE TOP BANNER FIX
+On demo pages, the current top banner message like:
+"THIS IS A DEMO SITE BUILT BY BOOKS AND BREWS..."
+feels too harsh and breaks the premium feel.
+
+Fix this.
+
+Preferred options:
+Option A:
+remove the harsh demo banner entirely
+
+Option B:
+replace it with a much cleaner, more premium slim bar or subtle link such as:
+"Built by Books and Brews → Get a site like this"
+
+Use the cleaner option that best preserves immersion.
+
+Do not let the page feel like a disposable mockup.
+
 ==================================================
+6. ADD A CONVERSION CTA TO EACH DEMO PAGE
+Each demo page should help convert visitors.
 
-Replace weak buttons:
+Add a clear CTA near or in the hero area:
+- "Get This Style"
+or
+- "Get This Style for My Business"
 
-Avoid:
-- Get Started
-- Start Project
+That button should link to the quote page or contact page.
 
-Use:
-- Get My Website Started
-- Build My Site Now
-- Start My Website
-- Get a Quote
+Requirements:
+- keep it premium
+- fits naturally into each demo brand
+- do not disrupt the individuality of the demos
+
+==================================================
+7. IMPROVE DEMO BRAND CONSISTENCY
+The demo pages should remain visually distinct, but they should still feel like they were built by the same high-quality studio.
+
+Tighten consistency on:
+- button quality/style
+- spacing rhythm
+- hover polish if present
+- overall premium finish
+
+Do NOT make them look identical.
+Just make them feel consistently polished.
 
 ==================================================
 8. MOBILE POLISH
-==================================================
+This pass must be strong on mobile.
 
-Ensure:
-- strong spacing
-- readable typography
-- clean stacking
-- clear CTAs
-- no clutter
+Check:
+- hero spacing
+- no repeated sections
+- CTA visibility
+- pain-point section readability
+- pricing card hierarchy
+- demo banner cleanliness
+- demo CTA visibility
+
+Everything should feel intentional and uncluttered on a phone.
 
 ==================================================
 FILES TO CHECK
 ==================================================
 
-Likely:
+Likely files:
 - index.html
-- services.html
-- portfolio.html
-- quote.html
-- demo pages
-- shared CSS
+- services.html if CTA wording appears there
+- portfolio.html if CTA wording appears there
+- quote.html if CTA wording appears there
+- /demo/hair.html
+- /demo/barber.html
+- /demo/beauty.html
+- shared CSS if needed
 
-If a file needs edits, regenerate full file.
+If a file needs edits, regenerate the full file.
 
 ==================================================
 OUTPUT FORMAT REQUIRED
 ==================================================
 
-1. Implementation summary
-2. Full updated files
-3. Notes
-4. Testing checklist
+Return in this order:
+
+1. Short implementation summary
+2. Full contents of every changed file
+3. Notes / assumptions
+4. Quick testing checklist
 
 ==================================================
-TESTING CHECKLIST
+TESTING CHECKLIST MUST INCLUDE
 ==================================================
 
-- hero clearly communicates value
-- audience targeting is obvious
-- pricing is easy to understand
-- $300 package stands out
-- portfolio feels desirable
-- trust section is present
-- CTA buttons are strong
-- quote page feels easy
-- mobile layout is clean
-- site feels premium and targeted
+- homepage has only one hero
+- no repeated hero block remains
+- primary CTA is stronger
+- pain-point section appears before pricing
+- Business Website card stands out clearly
+- demo top banner is cleaner or removed
+- each demo has a “Get This Style” style CTA
+- demos still feel unique
+- mobile layout feels polished and uncluttered
+- site feels more likely to convert a first-time visitor
 
-Implement the full conversion upgrade now.
+Implement this final conversion polish pass now.
