@@ -1,5 +1,15 @@
-cd /workspaces/towtrack-telegram
+
 pwd
+ls
+ls api
+PYTHONPATH=. uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+
+cd /workspaces/towtrack-app
+pwd
+ls
+
+touch api/__init__.py
+PYTHONPATH=. uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 
 cd api
 pip install -r ../requirements.txt  # if created
