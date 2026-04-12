@@ -1,190 +1,188 @@
-Project: Books and Brews
+You are working in the ClearEdge Auto Glass website repository.
 
-Goal:
-Implement the next best conversion upgrades on the public site, with demo pages positioned around the $125 starter offer.
-
-Important:
-If a file needs edits, regenerate the full file instead of returning partial snippets.
+The site redesign and updated customer flow have already been implemented and manually tested. Your task now is a production-safe privacy/security hardening pass.
 
 ==================================================
-CORE OBJECTIVE
+PRIMARY GOAL
 ==================================================
 
-Improve conversion by making the site:
-- more action-oriented
-- more urgent
-- more persuasive
-- easier to move from demo page to quote request
+Lock down public quote lookup so customer-facing endpoints return only payment-safe, status-safe fields.
 
-Important pricing note:
-The demo pages should now point to the $125 pricing level as the entry point.
+Do not expose private customer or internal admin data through public quote lookup.
 
-That means demo CTAs should frame the example sites as:
-- starting at $125
-- with upgrades available depending on features
+Keep the live workflow working exactly as it does now.
 
 ==================================================
-1. DEMO PAGE CTA UPGRADE
+CURRENT LIVE WORKFLOW TO PRESERVE
 ==================================================
 
-Update all demo pages:
-- /demo/hair.html
-- /demo/barber.html
-- /demo/beauty.html
+1. Customer selects a service date online
+2. Customer submits the service request
+3. Request submission unlocks payment
+4. Customer can complete payment immediately
+5. After successful payment, the appointment remains tied to the date selected by the customer
+6. Admin can still review, manage, override, and update the job internally
 
-Requirements:
-
-Add a strong CTA near the hero area:
-- "Get This Style for My Business"
-
-Add supporting line directly below or near the CTA:
-- "Starting at $125 depending on pages and features"
-
-Also add a second CTA near the bottom of each demo page.
-
-Both CTA buttons should link to:
-- /quote.html
-
-If possible, include URL parameters so quote page can prefill context, for example:
-- /quote.html?style=hair&package=starter
-- /quote.html?style=barber&package=starter
-- /quote.html?style=beauty&package=starter
-
-Keep each demo visually unique, but make sure the CTA treatment feels premium and intentional.
+Do not break this flow.
 
 ==================================================
-2. ADD URGENCY / SCARCITY
+WHAT MUST BE FIXED
 ==================================================
 
-Add a subtle urgency section or line on the homepage.
+Right now, public quote lookup is too permissive.
 
-Good placement:
-- near pricing
-- or near final CTA
+Customer-facing/public quote lookup must NOT expose:
+- phone
+- email
+- address
+- internal notes
+- schedule notes
+- admin-only fields
+- payment provider secrets or internal IDs
+- any sensitive customer or staff-only data
 
-Use premium wording like:
-- "Limited client spots available this month"
-or
-- "Currently booking a small number of new projects"
-
-Do not make it spammy.
-It should feel believable and tasteful.
-
-==================================================
-3. ADD STRONG MONEY / PAIN-POINT SECTION
-==================================================
-
-Add a section before pricing on the homepage.
-
-Title:
-"Stop Losing Clients to Businesses With Better Websites"
-
-Body:
-"If your business doesn’t have a clean, professional website, potential clients can hesitate, miss key information, or choose someone else. A strong website helps you build trust, look established, and turn more visitors into paying clients."
-
-Requirements:
-- premium styling
-- readable on mobile
-- should feel like a strong business case, not fear-based spam
+Public quote lookup should return only the minimum fields needed for:
+- payment page
+- status page
+- customer-facing confirmation flow
 
 ==================================================
-4. QUOTE PAGE PRICING CLARITY
+PUBLIC RESPONSE SHOULD ONLY INCLUDE SAFE FIELDS
 ==================================================
 
-Update /quote.html to make pricing expectations clearer.
+Only return fields like these from public quote lookup, if they are needed:
 
-Add helper copy such as:
-"Most projects start at $125 and can increase based on pages, features, and add-ons."
+- id
+- status
+- serviceType
+- year
+- make
+- model
+- approvedAmount or final charge amount if needed for payment display
+- calculatedAmount only if truly needed
+- scheduleDate
+- scheduleTime
+- scheduleWindow
+- fulfillmentStatus
+- paymentProvider (only if safe and useful to customer)
+- payment state / payment status fields that are safe for display
+- any safe customer-facing appointment status text if needed
 
-Also make the page feel:
-- simple
-- low-pressure
-- easy to complete
+Do NOT return:
+- firstName / lastName unless absolutely necessary and clearly justified
+- phone
+- email
+- service address
+- VIN
+- damage description
+- uploaded photo data
+- admin notes
+- scheduleNotes
+- webhook metadata
+- Stripe session IDs unless strictly needed by a secure status endpoint
+- OpenNode internal charge details beyond what is safe for customer-facing status
+- internal timestamps unless needed and safe
 
-If the quote page already has package or style logic, preserve it.
-
-==================================================
-5. DEMO-TO-QUOTE AUTOFILL
-==================================================
-
-Upgrade the quote page so if URL parameters are present, it prefills context.
-
-Examples:
-- style=hair
-- style=barber
-- style=beauty
-- package=starter
-
-Requirements:
-- if style is present, prefill a relevant project type or details field
-- if package=starter is present, prefill or suggest Starter Website / $125 starting point
-- do not break normal form behavior if no parameters are present
-
-This can be done with lightweight JS if the page already uses form inputs.
-
-==================================================
-6. KEEP PRICING CONSISTENT
-==================================================
-
-Make sure demo CTA language matches this pricing logic:
-
-Demo pages:
-- "Starting at $125 depending on pages and features"
-
-Public package structure remains:
-- Starter Website — $125
-- Business Website — $300
-- Premium Website — $600
-
-Do not accidentally change the broader package pricing.
+Default to least privilege.
 
 ==================================================
-7. DESIGN REQUIREMENTS
+FILES TO INSPECT AND UPDATE
 ==================================================
 
-- keep premium dark + warm visual style
-- no clutter
-- mobile-first
-- CTA buttons should feel stronger
-- urgency should feel subtle
-- pain-point section should feel polished, not aggressive
+Inspect and update the live files that actually serve this flow, including at minimum:
+- _worker.js
+- [[path]].js
+- payment.html
+- status.html
+- payment-success.html
+- control-center-7h9.html only if admin/public endpoint separation needs clarification
+
+If only one backend file is actually active, still inspect both before changing logic.
 
 ==================================================
-FILES TO CHECK
+IMPLEMENTATION RULES
 ==================================================
 
-Likely:
-- index.html
-- quote.html
-- /demo/hair.html
-- /demo/barber.html
-- /demo/beauty.html
-- any shared CSS
-- any JS used on quote page
+1. Keep admin endpoints unchanged in capability
+- Admin must still be able to access full quote data where needed
+- Admin token based flows must keep working
 
-If a file needs edits, regenerate the full file.
+2. Separate public-safe and admin/full responses clearly
+- Public endpoints should return sanitized quote objects
+- Admin endpoints may keep full objects if already protected
+
+3. Do not break:
+- quote submission
+- payment lookup
+- status lookup
+- Stripe checkout
+- OpenNode/Bitcoin checkout if configured
+- payment success status verification
+- admin quote management
+- quote ID based lookup flow
+
+4. Do not redesign the site
+- This is a privacy/security hardening pass only
+- Minimal UI changes only if required to support the reduced public response
+
+5. Do not rename routes unless absolutely necessary
+6. Do not remove backward compatibility unless clearly safe
+7. Keep implementation simple and production-safe
 
 ==================================================
-OUTPUT FORMAT REQUIRED
+RECOMMENDED APPROACH
 ==================================================
 
-Return in this order:
+- Identify all public quote lookup responses
+- Add a sanitization layer for public/customer-facing quote data
+- Ensure admin-authenticated endpoints still return full records where needed
+- Update payment.html and status.html so they only depend on safe public fields
+- Ensure payment-success.html still works with status verification endpoints
+- Preserve any provider verification logic that must remain secure
 
-1. Short implementation summary
-2. Full contents of every changed file
-3. Notes / assumptions
-4. Quick testing checklist
+If useful, create a small helper function such as:
+- sanitizePublicQuote(quote)
+
+Use it consistently across public endpoints.
 
 ==================================================
-TESTING CHECKLIST MUST INCLUDE
+VALIDATION REQUIREMENTS
 ==================================================
 
-- each demo page has a strong CTA near the top
-- each demo page mentions starting at $125
-- demo CTA links to quote page
-- quote page shows starting price guidance
-- quote page prefills correctly when URL params exist
-- homepage includes urgency section
-- homepage includes pain-point section before pricing
-- mobile layout stays clean
-- package pricing elsewhere remains correct
+Before finishing, verify:
+
+1. A public quote lookup still works for:
+- payment.html
+- status.html
+- payment-success.html status checks if applicable
+
+2. Public quote lookup no longer exposes:
+- phone
+- email
+- address
+- notes
+- VIN
+- internal metadata
+
+3. Admin flows still work:
+- load quotes
+- view quote details
+- set pricing
+- update status
+- run payment
+- mark paid / completed / canceled
+
+4. No route names are broken
+5. No customer-facing flow is broken
+
+==================================================
+DELIVERABLES
+==================================================
+
+Make the changes now and return:
+
+1. files changed
+2. what public fields were removed from customer-facing responses
+3. what safe fields remain exposed publicly
+4. confirmation that admin endpoints still return full data
+5. any remaining privacy/security risks
